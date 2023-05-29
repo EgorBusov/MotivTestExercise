@@ -1,0 +1,134 @@
+﻿@using MotivExercise.Models.OrdersModels
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/Motiv.css"/>
+    <script>
+        function showFormAdd() {
+            var formContainerAdd = document.getElementById("formContainerAdd");
+            formContainerAdd.style.display = "flex";
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="Error" asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="add-order-link">
+    <a href="#" onclick="showFormAdd()">Добавить</a>
+</div>
+
+<div class="filter-order">
+    <form class="filter-order-form" asp-controller="Order" asp-action="GetOrders" method="get">
+        <p>
+            <input name="Id" placeholder="Id"/>
+        </p>
+        <p>
+            <input name="Country" placeholder="Страна"/>
+        </p>
+        <p>
+            <input name="Region" placeholder="Регион"/>
+        </p>
+        <p>
+            <input name="Locality" placeholder="Населенный пункт"/>
+        </p>
+        <p>
+            <input name="Telephone" placeholder="Телефон" title="+7(10)"/>
+        </p>
+        <p>
+            <input name="Cause" placeholder="Причина"/>
+        </p>
+        <p>
+            <input name="Department" placeholder="Направление" list="departments"/>
+            <datalist id="departments">
+                @foreach (Department d in ViewBag.Departments)
+                {
+                    <option value="@d.Name"></option>
+                }
+            </datalist>
+        </p>
+        <p>
+            <input name="DateCreate" placeholder="Дата"/>
+        </p>
+        <button type="submit">Найти</button>
+    </form>
+</div>
+
+<table class="orders">
+    <tr>
+        <th>Номер заявки</th>
+        <th>Страна</th>
+        <th>Регион</th>
+        <th>Населенный пункт</th>
+        <th>Телефон</th>
+        <th>Причина Обращения</th>
+        <th>Направление</th>
+        <th>Дата обращения</th>
+    </tr>
+    @foreach (Order p in ViewBag.Orders)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Country</td>
+            <td>@p.Region</td>
+            <td>@p.Locality</td>
+            <td>@p.Telephone</td>
+            <td>@p.Cause</td>
+            <td>@p.Department</td>
+            <td>@p.DateCreate</td>
+            <td>
+                <a href=@Url.Action("DeleteOrder", "Order", new { id = p.Id })>
+                    <img src="/img/deleteImg.jpg" alt="Удалить"/>
+                </a>
+            </td>
+            <td>
+                <a href=@Url.Action("EditOrder", "Order", new { id = p.Id })>
+                    <img src="/img/editImg.jpg" alt="Изменить"/>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div id="formContainerAdd" class="add-order" style="display: none;">
+    <form class="add-order-form" asp-controller="Order" asp-action="AddOrder" method="post">
+        <p>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </p>
+        <p>
+            <input name="Country" required placeholder="Страна"/>
+        </p>
+        <p>
+            <input name="Region" required placeholder="Регион"/>
+        </p>
+        <p>
+            <input name="Locality" required placeholder="Населенный пункт"/>
+        </p>
+        <p>
+            <input name="Telephone" required placeholder="Телефон" title="+7(10)"/>
+        </p>
+        <p>
+            <input name="Cause" required placeholder="Причина"/>
+        </p>
+        <p>
+            <input name="Department" required placeholder="Направление" list="departments"/>
+            <datalist id="departments">
+                @foreach (Department d in ViewBag.Departments)
+                {
+                    <option value="@d.Name"></option>
+                }
+            </datalist>
+        </p>
+
+        <button type="submit">Добавить</button>
+
+        <a href="/Order/GetOrders">Отмена</a>
+    </form>
+</div>
+
+</body>
+
+</html>

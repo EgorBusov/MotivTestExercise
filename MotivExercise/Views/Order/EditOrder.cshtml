@@ -1,0 +1,57 @@
+﻿@model MotivExercise.Models.OrdersModels.OrderEdit
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/Motiv.css"/>
+</head>
+
+<body>
+
+<div class="edit-order">
+    <form class="edit-order-form" asp-controller="Order" asp-action="EditOrder" method="post" enctype="multipart/form-data">
+        <p>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </p>
+        <p>
+            <input asp-for="Id" readonly required placeholder="Id"/>
+        </p>
+        <p>
+            <input asp-for="Country" required placeholder="Страна"/>
+        </p>
+        <p>
+            <input asp-for="Region" required placeholder="Регион"/>
+        </p>
+        <p>
+            <input asp-for="Locality" required placeholder="Населенный пункт"/>
+        </p>
+        <p>
+            <input asp-for="Telephone" required placeholder="Телефон" title="+7(10)"/>
+        </p>
+        <p>
+            <input asp-for="Cause" required placeholder="Причина"/>
+        </p>
+        <p>
+            <input name="Department" asp-for="Department" required placeholder="Направление" list="departments"/>
+            <datalist id="departments">
+                @foreach (Department d in ViewBag.Departments)
+                {
+                    <option value="@d.Name"></option>
+                }
+            </datalist>
+        </p>
+        <p>
+            <input asp-for="DateCreate" required placeholder="Дата"/>
+        </p>
+
+        <button type="submit">Изменить</button>
+        
+        <a href="/Order/GetOrders">Отмена</a>
+    </form>
+</div>
+
+</body>
+
+</html>

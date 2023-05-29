@@ -1,0 +1,146 @@
+﻿body {
+    background: #E0FFFF;
+}
+
+.Error {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.add-order-link {
+    display: block;
+}
+    .add-order-link a {
+        display: inline-block;
+        background: #ff6347;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        color: black;
+    }
+
+.filter-order {
+    display: inline-block;
+    margin-bottom: 20px;
+    background: #ff6347;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+    .filter-order p {
+        display: inline;
+    }
+    .filter-order input {
+        width: 140px;
+        border-radius: 5px;
+        background: #FFA07A;
+    }
+
+    .filter-order button {
+        width: 60px;
+        border-radius: 5px;
+        background: #FFA07A;
+    }
+
+.orders img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.orders tr th {
+    background: #7FFFD4;
+}
+
+.orders tr td {
+    background: #FFDEAD;
+}
+
+.orders tr th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.add-order {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-order-form {
+    display: inline-block;
+    background: #ff6347;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+    .add-order-form input {
+        width: 200px;
+        border-radius: 5px;
+        background: #FFA07A;
+    }
+
+    .add-order-form button {
+        width: 100px;
+        border-radius: 5px;
+        background: #FFA07A;
+    }
+
+    .add-order-form a {
+        display: inline-block;
+        width: 100px;
+        border-radius: 5px;
+        background: #FFA07A;
+        border: 2px solid black;
+        border-radius: 5px;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+    }
+
+.edit-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .edit-order-form {
+    display: inline-block;
+    background: #ff6347;
+    padding: 20px;
+    border-radius: 10px;
+}
+    .edit-order-form input {
+        width: 200px;
+        border-radius: 5px;
+        background: #FFA07A;
+    }
+
+    .edit-order-form button {
+        width: 100px;
+        border-radius: 5px;
+        background: #FFA07A;
+    }
+
+    .edit-order-form a {
+        display: inline-block;
+        width: 100px;
+        border-radius: 5px;
+        background: #FFA07A;
+        border: 2px solid black;
+        border-radius: 5px;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+    }
